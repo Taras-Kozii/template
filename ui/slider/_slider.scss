@@ -1,0 +1,59 @@
+.slider-gallery {
+  min-width: 0;
+  &__body {
+    @include adaptive-property(width, 200, 400, 1200);
+  }
+  &__slide {
+    flex-shrink: 0;
+    @include adaptive-property(width, 200, 400, 400);
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: $transition-duraction-short;
+    border-radius: 8px;
+    @include ibg;
+  }
+  &__next,
+  &__prev {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+  }
+  &__next {
+    translate: 50% -50%;
+    @include adaptive-property(right, -36, -44, -64);
+    rotate: -180deg;
+  }
+  &__prev {
+    translate: -50% -50%;
+    @include adaptive-property(left, -36, -44, -64);
+  }
+  &__dots {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4px;
+
+    span {
+      flex: 0 0 auto;
+      @include adaptive-property(width, 10, 20, 20);
+      @include adaptive-property(height, 10, 20, 20);
+      border-radius: 50%;
+      background-color: #2228;
+      transition: $transition-duraction-short;
+    }
+    // АКТИВНИЙ КРАПКА
+    // span[class*="-active"] {
+    //   scale: 1.2;
+    //   background-color: #000;
+    // }
+  }
+}

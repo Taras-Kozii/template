@@ -1,0 +1,23 @@
+@use "../utils/_index" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  background: #000;
+  &__content {
+    width: 100%;
+    padding: 10px 0;
+    @include flex(space-between);
+  }
+  &__menu {
+    @include flex(space-between, center);
+    column-gap: 10px;
+  }
+  &__logo {
+    @include position-r;
+    z-index: 5;
+  }
+}
