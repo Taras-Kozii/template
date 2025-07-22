@@ -1,0 +1,30 @@
+@use "../utils/index" as *;
+
+.fill-down-effect {
+  position: relative;
+  left: 0;
+  right: 0;
+  transition: 0.15s;
+  z-index: 1;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    width: 150%;
+    height: 300%;
+    border-radius: 50%;
+    background-color: $text-color-2;
+    z-index: -1;
+    transition: $transition-duraction ease-in-out;
+  }
+
+  &:hover {
+    color: $bg-color-red;
+  }
+
+  &:hover::before {
+    bottom: -50%;
+  }
+}

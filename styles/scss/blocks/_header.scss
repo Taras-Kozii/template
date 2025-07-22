@@ -1,23 +1,50 @@
 @use "../utils/_index" as *;
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 50;
-  background: #000;
+  transition: $transition-duraction;
+
   &__content {
     width: 100%;
     padding: 10px 0;
-    @include flex(space-between);
+    @include flex(space-between, center);
   }
+
   &__menu {
     @include flex(space-between, center);
     column-gap: 10px;
   }
+
   &__logo {
     @include position-r;
     z-index: 5;
   }
+
+  &__links {
+    display: none;
+
+    @include on-tablet {
+      @include flex-center;
+      column-gap: 32px;
+    }
+  }
+
+  &__login {
+    font-weight: 600;
+    color: $bg-color-main;
+  }
+}
+
+.header.scrolling {
+  background: rgba(79, 79, 84, 0.2);
+  backdrop-filter: blur(18px);
+}
+
+.header.hidden {
+  opacity: 0;
+  transform: translateY(-30px);
 }

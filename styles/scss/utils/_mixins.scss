@@ -30,30 +30,54 @@
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // АДАПТИВНА ВЛАСТИВІСТЬ
 
-@mixin adaptive-property($property, $mobile-size, $tablet-size, $desktop-size, $unit: px) {
+@mixin adaptive-property(
+  $property,
+  $mobile-size,
+  $tablet-size,
+  $desktop-size,
+  $unit: px
+) {
+  $max-width: 1440;
   $min-width: 320;
   $tablet-width: 767.98;
-  $max-width: $container-width;
 
   @if ($unit == rem) {
-    $max-width: to-rem($container-width, 16);
-    $min-width: to-rem($min-width, 16);
-    $tablet-width: to-rem($mobile-l, 16);
+    $max-width: math.div(1440, 16);
+    $min-width: math.div(320, 16);
+    $tablet-width: math.div(767.98, 16);
   }
 
   @if ($tablet-size == 0) {
     #{$property}: $desktop-size + $unit;
 
-    @media (max-width: #{$container-width}px) {
-      #{$property}: get-value($min-width, $max-width, $mobile-size, $desktop-size, $unit);
+    @media (max-width: 1440px) {
+      #{$property}: get-value(
+        $min-width,
+        $max-width,
+        $mobile-size,
+        $desktop-size,
+        $unit
+      );
     }
   } @else {
-    #{$property}: get-value($min-width, $tablet-width, $mobile-size, $tablet-size, $unit);
+    #{$property}: get-value(
+      $min-width,
+      $tablet-width,
+      $mobile-size,
+      $tablet-size,
+      $unit
+    );
 
     @media (min-width: 767.98px) {
-      #{$property}: get-value($tablet-width, $max-width, $tablet-size, $desktop-size, $unit);
+      #{$property}: get-value(
+        $tablet-width,
+        $max-width,
+        $tablet-size,
+        $desktop-size,
+        $unit
+      );
     }
-    @media (min-width: #{$container-width}px) {
+    @media (min-width: 1440px) {
       #{$property}: $desktop-size + $unit;
     }
   }
@@ -72,13 +96,18 @@
     @content;
   }
 }
-@mixin on-laptop {
-  @media (max-width: 1024px) {
+// @mixin on-laptop {
+//   @media (max-width: 1024px) {
+//     @content;
+//   }
+// }
+@mixin on-mobile-l {
+  @media (min-width: #{$mobile-l}px) {
     @content;
   }
 }
-@mixin on-mobile-l {
-  @media (min-width: #{$mobile-l}px) {
+@mixin on-mobile-s {
+  @media (min-width: #{$mobile-s}px) {
     @content;
   }
 }

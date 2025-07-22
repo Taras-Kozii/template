@@ -1,0 +1,74 @@
+@use "../utils/index" as *;
+
+//UNDERLINE
+.underline-show-center {
+  span {
+    position: relative;
+  }
+
+  span::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform-origin: center;
+    transform: translate(-50%, 0) scaleX(0);
+    transition: transform $transition-duraction ease-in-out;
+  }
+
+  span:hover::before {
+    transform: translate(-50%, 0) scaleX(1);
+  }
+}
+
+.underline-show-left-right {
+  span {
+    position: relative;
+  }
+
+  span::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 5px;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform $transition-duraction ease;
+  }
+
+  span:hover::before {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+}
+
+.underline-hidden {
+  span {
+    position: relative;
+  }
+
+  span::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: currentColor;
+    transform-origin: bottom left;
+    transform: scaleX(1);
+    transition: transform $transition-duraction ease-in-out;
+  }
+
+  span:hover::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+}
