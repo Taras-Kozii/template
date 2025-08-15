@@ -72,3 +72,26 @@
     transform-origin: bottom right;
   }
 }
+
+//TEXT COLOR + UNDERLINE
+.fill-color {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    max-width: 0;
+    border-bottom: 2px solid currentColor;
+    color: #1699f7;
+    transition: max-width $transition-duraction ease-in-out;
+  }
+
+  @include hover-pseudo("::before") {
+    max-width: 100%;
+  }
+}
