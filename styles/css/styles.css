@@ -709,3 +709,39 @@ h6 {
       -ms-transform: scaleX(0);
           transform: scaleX(0);
 }
+
+@-webkit-keyframes open-anim {
+  50% {
+    width: 300%;
+    height: 300%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes open-anim {
+  50% {
+    width: 300%;
+    height: 300%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+@-webkit-keyframes not-open-anim {
+  0% {
+    width: 300%;
+    height: 300%;
+  }
+}
+@keyframes not-open-anim {
+  0% {
+    width: 300%;
+    height: 300%;
+  }
+}
