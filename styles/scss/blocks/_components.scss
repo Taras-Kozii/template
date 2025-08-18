@@ -40,21 +40,6 @@
   cursor: pointer;
   z-index: 1;
   overflow: hidden;
-
-  &:disabled {
-    color: $bg-color-main;
-    border-color: #c9e4ea;
-  }
-  &:hover {
-    color: $text-color-main;
-    border-color: #6cafd9;
-    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
-  }
-  &:active {
-    color: #dde5e8;
-    border-color: #6cafd9;
-    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
-  }
 }
 // ==============================LOGO
 .logo {

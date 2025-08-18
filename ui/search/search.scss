@@ -1,10 +1,12 @@
+@use "../../styles/scss/utils/index" as *;
+
 .header-label {
   display: none;
   @include on-mobile-l {
     display: flex;
   }
   position: relative;
-  border-radius: $radius-s;
+  border-radius: 16px;
   padding: 0.8em 1.3em;
   font-size: 17px;
   background-color: transparent;

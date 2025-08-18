@@ -1,3 +1,5 @@
+@use "../../styles/scss/utils/index" as *;
+
 .swiper.places-slider {
   min-width: 0;
   @include adaptive-property(width, 320, 0, 1340);

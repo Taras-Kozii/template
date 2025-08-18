@@ -23,20 +23,6 @@
     @include position-r;
     z-index: 5;
   }
-
-  &__links {
-    display: none;
-
-    @include on-tablet {
-      @include flex-center;
-      column-gap: 32px;
-    }
-  }
-
-  &__login {
-    font-weight: 600;
-    color: $bg-color-main;
-  }
 }
 
 .header.scrolling {
