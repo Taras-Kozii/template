@@ -1,0 +1,498 @@
+//=======================================BURGER 1 SPAN ==========================
+
+$menu-icon-size: 6rem;
+$menu-icon-dash-width: 0.75em; //em(4.5rem, 6rem)
+$menu-icon-dash-height: 0.05em; //em(0.3rem, 6rem)
+$menu-icon-dash-gutter: $menu-icon-dash-height * 5;
+$menu-icon-dash-color: #dd96ba;
+$menu-icon-dash-border-radius: 0;
+
+%menu-dash {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: (1em - $menu-icon-dash-width) / 2; // center X
+  background-color: $menu-icon-dash-color;
+  width: $menu-icon-dash-width;
+  height: $menu-icon-dash-height;
+  border-radius: $menu-icon-dash-border-radius;
+}
+
+.menu-icon {
+  font-size: $menu-icon-size;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  position: relative;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  outline: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  cursor: pointer;
+
+  span {
+    @extend %menu-dash;
+    margin-top: $menu-icon-dash-height/-2;
+  }
+
+  &:before {
+    content: "";
+    @extend %menu-dash;
+    margin-top: -$menu-icon-dash-gutter + ($menu-icon-dash-height/-2);
+  }
+
+  &:after {
+    content: "";
+    @extend %menu-dash;
+    margin-top: $menu-icon-dash-gutter + ($menu-icon-dash-height/-2);
+  }
+}
+
+
+// Example 1
+// =============================================
+.example-1 {
+  span {
+    transition: 0.2s ease-in-out 0.2s;
+  }
+
+  &:before,
+  &:after {
+    transition: margin 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
+  }
+
+  &.is-open {
+    span {
+      background-color: rgba($menu-icon-dash-color, 0);
+      transition-delay: 0s;
+    }
+
+    &:before,
+    &:after {
+      margin-top: 0;
+      transition-delay: 0s, 0.25s, 0.25s;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// Example 2
+// =============================================
+.example-2 {
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  span {
+    transition: 0.25s ease;
+
+    &:before,
+    &:after {
+      @extend %menu-dash;
+      content: "";
+      transition: 0.25s ease;
+      top: 0;
+      left: 0;
+    }
+
+    &:before {
+      transform: translateY(-$menu-icon-dash-gutter);
+    }
+
+    &:after {
+      transform: translateY($menu-icon-dash-gutter);
+    }
+  }
+
+  &.is-open {
+    span {
+      transform: rotate(45deg);
+
+      &:before,
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+// Example 3
+// =============================================
+.example-3 {
+
+  &:before,
+  &:after,
+  span {
+    transition: 0.25s ease-in-out;
+  }
+
+  &.is-open {
+    &:before {
+      transform: rotate(135deg);
+      margin-top: $menu-icon-dash-height/-2;
+    }
+
+    &:after {
+      transform: rotate(-135deg);
+      margin-top: $menu-icon-dash-height/-2;
+    }
+
+    span {
+      opacity: 0;
+      transform: translateX(150%);
+    }
+  }
+}
+
+// Example 4
+// =============================================
+.example-4 {
+
+  &:before,
+  &:after {
+    transition: 0.2s ease 0.2s;
+  }
+
+  &:after {
+    left: auto;
+    right: (1em - $menu-icon-dash-width) / 2;
+  }
+
+  span {
+    transition: 0.2s;
+
+    &:before {
+      @extend %menu-dash;
+      content: "";
+      transition: inherit;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &.is-open {
+
+    &:before,
+    &:after {
+      transition: 0.2s ease;
+      width: 0;
+    }
+
+    span {
+      transform: rotate(45deg);
+      transition: 0.2s ease 0.2s;
+
+      &:before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+// Example 7
+// =============================================
+.example-7 {
+
+  &:before,
+  &:after {
+    transition-property: margin, opacity;
+    transition-duration: 0.25s, 0s;
+    transition-delay: 0.25s;
+  }
+
+  span {
+    transition: 0.25s ease;
+  }
+
+  &.is-open {
+
+    &:before,
+    &:after {
+      margin-top: 0;
+      opacity: 0;
+      transition-delay: 0s, 0.25s;
+    }
+
+    span {
+      $menu-icon-ellipse: 0.3em;
+
+      width: $menu-icon-ellipse;
+      height: $menu-icon-ellipse;
+      margin-top: $menu-icon-ellipse/-2;
+      left: 0.5em - ($menu-icon-ellipse/2);
+      border-radius: 50%;
+      transition-delay: 0.25s;
+    }
+  }
+}
+
+// Example 8
+// =============================================
+.example-8 {
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  span {
+    transition: 0.25s ease;
+
+    &:before,
+    &:after {
+      @extend %menu-dash;
+      content: "";
+      top: 0;
+      left: 0;
+      transition: inherit;
+      margin: 0;
+    }
+
+    &:before {
+      transform: translateY(-$menu-icon-dash-gutter);
+    }
+
+    &:after {
+      transform: translateY($menu-icon-dash-gutter);
+    }
+  }
+
+  &.is-open {
+    span {
+      transform: rotate(180deg);
+
+      &:before,
+      &:after {
+        width: $menu-icon-dash-width/2;
+        left: 0.02em;
+      }
+
+      &:before {
+        transform: rotate(-45deg) translateY(-0.17em);
+      }
+
+      &:after {
+        transform: rotate(45deg) translateY(0.17em);
+      }
+    }
+  }
+}
+
+// Example 9
+// =============================================
+.example-9 {
+
+  &:before,
+  &:after {
+    display: none;
+  }
+
+  span {
+    transition: 0.25s ease;
+
+    &:before,
+    &:after {
+      @extend %menu-dash;
+      content: "";
+      top: 0;
+      right: 0;
+      left: auto;
+      transition: inherit;
+      margin: 0;
+    }
+
+    &:before {
+      transform: translateY(-$menu-icon-dash-gutter);
+    }
+
+    &:after {
+      transform: translateY($menu-icon-dash-gutter);
+    }
+  }
+
+  &.is-open {
+    span {
+      transform: rotate(-180deg);
+
+      &:before,
+      &:after {
+        width: $menu-icon-dash-width/2;
+        right: 0.02em;
+      }
+
+      &:before {
+        transform: rotate(-45deg) translateY(0.17em);
+      }
+
+      &:after {
+        transform: rotate(45deg) translateY(-0.17em);
+      }
+    }
+  }
+}
+
+// ===================== BURGER 3 SPAN ===============================
+.burger-icon {
+  width: 55px;
+  height: 55px;
+  margin: auto;
+  display: block;
+  padding: 15px;
+  padding-top: 1px;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  transition: all .5s;
+
+  span {
+    display: block;
+    height: 3px;
+    background: #000;
+    margin-top: 15px;
+    border-radius: 2px;
+    transition: all .5s;
+  }
+
+  &.open {
+    &.first {
+      padding-top: 35px;
+      height: 21px;
+
+      &>span {
+        margin-top: 0;
+        border-radius: 0;
+        height: 1px;
+      }
+    }
+
+    &.fourth {
+      padding-top: 15px;
+      height: 41px;
+
+      span {
+        height: 2.5px;
+        margin: -2px;
+
+        &:nth-child(1) {
+          height: 20px;
+          border-radius: 25px 25px 2px 2px;
+          margin: 0 1px 3px 1px;
+        }
+
+        &:nth-child(2) {
+          height: 5px;
+          border-radius: 3px;
+          margin: 3px 0;
+        }
+
+        &:nth-child(3) {
+          height: 10px;
+          border-radius: 2px 2px 15px 15px;
+          margin: 3px 1px;
+        }
+      }
+    }
+  }
+}
+
+.open.spin {
+  transform: rotate(360deg);
+}
+
+// ===================== BURGER 6 SPAN ===============================
+
+#nav-icon2 {
+  width: 60px;
+  height: 45px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-icon2 span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 50%;
+  background: #d3531a;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+#nav-icon2 span:nth-child(even) {
+  left: 50%;
+  border-radius: 0 9px 9px 0;
+}
+
+#nav-icon2 span:nth-child(odd) {
+  left: 0px;
+  border-radius: 9px 0 0 9px;
+}
+
+#nav-icon2 span:nth-child(1),
+#nav-icon2 span:nth-child(2) {
+  top: 0px;
+}
+
+#nav-icon2 span:nth-child(3),
+#nav-icon2 span:nth-child(4) {
+  top: 18px;
+}
+
+#nav-icon2 span:nth-child(5),
+#nav-icon2 span:nth-child(6) {
+  top: 36px;
+}
+
+#nav-icon2.open span:nth-child(1),
+#nav-icon2.open span:nth-child(6) {
+  transform: rotate(45deg);
+}
+
+#nav-icon2.open span:nth-child(2),
+#nav-icon2.open span:nth-child(5) {
+  transform: rotate(-45deg);
+}
+
+#nav-icon2.open span:nth-child(1) {
+  left: 5px;
+  top: 7px;
+}
+
+#nav-icon2.open span:nth-child(2) {
+  left: calc(50% - 5px);
+  top: 7px;
+}
+
+#nav-icon2.open span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+
+#nav-icon2.open span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+
+#nav-icon2.open span:nth-child(5) {
+  left: 5px;
+  top: 29px;
+}
+
+#nav-icon2.open span:nth-child(6) {
+  left: calc(50% - 5px);
+  top: 29px;
+}
