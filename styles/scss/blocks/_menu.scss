@@ -1,25 +1,23 @@
-$menu-icon-size: 6rem;
-$menu-icon-dash-width: 0.75em; //em(4.5rem, 6rem)
-$menu-icon-dash-height: 0.05em; //em(0.3rem, 6rem)
-$menu-icon-dash-gutter: $menu-icon-dash-height * 5;
-$menu-icon-dash-color: #dd96ba;
-$menu-icon-dash-border-radius: 0;
+$menu-size: 70px;
+$line-height: 4px; // замість 0.05em
+$gap: $line-height * 5;
+$bg-color: #000;
+$radius: 0;
 
 %menu-dash {
   display: block;
   position: absolute;
   top: 50%;
-  left: (1em - $menu-icon-dash-width) / 2; // center X
-  background-color: $menu-icon-dash-color;
-  width: $menu-icon-dash-width;
-  height: $menu-icon-dash-height;
-  border-radius: $menu-icon-dash-border-radius;
+  left: 0;
+  background-color: $bg-color;
+  width: $menu-size;
+  height: $line-height;
+  border-radius: $radius;
 }
 
 .burger {
-  font-size: $menu-icon-size;
-  width: 1em;
-  height: 1em;
+  width: $menu-size;
+  height: $menu-size;
   display: inline-block;
   position: relative;
   background-color: transparent;
@@ -33,26 +31,25 @@ $menu-icon-dash-border-radius: 0;
 
   span {
     @extend %menu-dash;
-    margin-top: $menu-icon-dash-height/-2;
+    margin-top: $line-height / -2;
   }
 
   &:before {
     content: "";
     @extend %menu-dash;
-    margin-top: -$menu-icon-dash-gutter + ($menu-icon-dash-height/-2);
+    margin-top: -$gap + ($line-height / -2);
   }
 
   &:after {
     content: "";
     @extend %menu-dash;
-    margin-top: $menu-icon-dash-gutter + ($menu-icon-dash-height/-2);
+    margin-top: $gap + ($line-height / -2);
   }
 }
 
-
-// Example 1
+//Зсув до центру
 // =============================================
-.example-1 {
+.translate-center {
   span {
     transition: 0.2s ease-in-out 0.2s;
   }
@@ -64,7 +61,7 @@ $menu-icon-dash-border-radius: 0;
 
   &.active {
     span {
-      background-color: rgba($menu-icon-dash-color, 0);
+      background-color: rgba($bg-color, 0);
       transition-delay: 0s;
     }
 
@@ -84,10 +81,9 @@ $menu-icon-dash-border-radius: 0;
   }
 }
 
-// Example 2
+// Обертання
 // =============================================
-.example-2 {
-
+.rotate {
   &:before,
   &:after {
     display: none;
@@ -106,11 +102,11 @@ $menu-icon-dash-border-radius: 0;
     }
 
     &:before {
-      transform: translateY(-$menu-icon-dash-gutter);
+      transform: translateY(-$gap);
     }
 
     &:after {
-      transform: translateY($menu-icon-dash-gutter);
+      transform: translateY($gap);
     }
   }
 
@@ -126,10 +122,9 @@ $menu-icon-dash-border-radius: 0;
   }
 }
 
-// Example 3
-// =============================================
-.example-3 {
-
+// Cередина відїжає вправо і зникає
+// // =============================================
+.midle-hidden {
   &:before,
   &:after,
   span {
@@ -139,12 +134,12 @@ $menu-icon-dash-border-radius: 0;
   &.active {
     &:before {
       transform: rotate(135deg);
-      margin-top: $menu-icon-dash-height/-2;
+      margin-top: $line-height / -2;
     }
 
     &:after {
       transform: rotate(-135deg);
-      margin-top: $menu-icon-dash-height/-2;
+      margin-top: $line-height / -2;
     }
 
     span {
@@ -154,10 +149,9 @@ $menu-icon-dash-border-radius: 0;
   }
 }
 
-// Example 4
-// =============================================
-.example-4 {
-
+// Верх і низ плавно зникає в різні боки
+// // =============================================
+.both-hidden {
   &:before,
   &:after {
     transition: 0.2s ease 0.2s;
@@ -165,7 +159,7 @@ $menu-icon-dash-border-radius: 0;
 
   &:after {
     left: auto;
-    right: (1em - $menu-icon-dash-width) / 2;
+    right: 0;
   }
 
   span {
@@ -181,7 +175,6 @@ $menu-icon-dash-border-radius: 0;
   }
 
   &.active {
-
     &:before,
     &:after {
       transition: 0.2s ease;
@@ -199,10 +192,9 @@ $menu-icon-dash-border-radius: 0;
   }
 }
 
-// Example 7
-// =============================================
-.example-7 {
-
+// // Бургер стає крапкою
+// // =============================================
+.dott {
   &:before,
   &:after {
     transition-property: margin, opacity;
@@ -215,6 +207,16 @@ $menu-icon-dash-border-radius: 0;
   }
 
   &.active {
+    span {
+      $menu-dott: $menu-size / 3.333;
+
+      width: $menu-dott;
+      height: $menu-dott;
+      margin-top: $menu-dott / -2;
+      left: $menu-dott; 
+      border-radius: 50%;
+      transition-delay: 0.25s;
+    }
 
     &:before,
     &:after {
@@ -222,24 +224,12 @@ $menu-icon-dash-border-radius: 0;
       opacity: 0;
       transition-delay: 0s, 0.25s;
     }
-
-    span {
-      $menu-icon-ellipse: 0.3em;
-
-      width: $menu-icon-ellipse;
-      height: $menu-icon-ellipse;
-      margin-top: $menu-icon-ellipse/-2;
-      left: 0.5em - ($menu-icon-ellipse/2);
-      border-radius: 50%;
-      transition-delay: 0.25s;
-    }
   }
 }
 
-// Example 8
-// =============================================
+// // Example 8
+// // =============================================
 .example-8 {
-
   &:before,
   &:after {
     display: none;
@@ -259,11 +249,11 @@ $menu-icon-dash-border-radius: 0;
     }
 
     &:before {
-      transform: translateY(-$menu-icon-dash-gutter);
+      transform: translateY(-$gap);
     }
 
     &:after {
-      transform: translateY($menu-icon-dash-gutter);
+      transform: translateY($gap);
     }
   }
 
@@ -273,70 +263,72 @@ $menu-icon-dash-border-radius: 0;
 
       &:before,
       &:after {
-        width: $menu-icon-dash-width/2;
-        left: 0.02em;
+        width: $menu-size / 2;
+        // left: 0.12rem; // 0.02em = 0.02 * 6rem
+        left: $menu-size / 100 * 2;
       }
 
       &:before {
-        transform: rotate(-45deg) translateY(-0.17em);
+        // transform: rotate(-45deg) translateY(-1.02rem); // 0.17em = 1.02rem
+        transform: rotate(-45deg) translateY(-($menu-size / 100 * 16));
       }
 
       &:after {
-        transform: rotate(45deg) translateY(0.17em);
+        transform: rotate(45deg) translateY($menu-size / 100 * 16);
       }
     }
   }
 }
 
-// Example 9
-// =============================================
-.example-9 {
+// // Example 9
+// // =============================================
+// .example-9 {
+//   &:before,
+//   &:after {
+//     display: none;
+//   }
 
-  &:before,
-  &:after {
-    display: none;
-  }
+//   span {
+//     transition: 0.25s ease;
 
-  span {
-    transition: 0.25s ease;
+//     &:before,
+//     &:after {
+//       @extend %menu-dash;
+//       content: "";
+//       top: 0;
+//       right: 0;
+//       left: auto;
+//       transition: inherit;
+//       margin: 0;
+//     }
 
-    &:before,
-    &:after {
-      @extend %menu-dash;
-      content: "";
-      top: 0;
-      right: 0;
-      left: auto;
-      transition: inherit;
-      margin: 0;
-    }
+//     &:before {
+//       transform: translateY(-$gap);
+//     }
 
-    &:before {
-      transform: translateY(-$menu-icon-dash-gutter);
-    }
+//     &:after {
+//       transform: translateY($gap);
+//     }
+//   }
 
-    &:after {
-      transform: translateY($menu-icon-dash-gutter);
-    }
-  }
+//   &.active {
+//     span {
+//       transform: rotate(-180deg);
 
-  &.active {
-    span {
-      transform: rotate(-180deg);
+//       &:before,
+//       &:after {
+//         width: $menu-size / 2;
+//         right: 0.12rem; // 0.02em = 1.2px = 0.12rem
+//       }
 
-      &:before,
-      &:after {
-        width: $menu-icon-dash-width/2;
-        right: 0.02em;
-      }
+//       &:before {
+//         transform: rotate(-45deg) translateY(1.02rem);
+//       }
 
-      &:before {
-        transform: rotate(-45deg) translateY(0.17em);
-      }
+//       &:after {
+//         transform: rotate(45deg) translateY(-1.02rem);
+//       }
+//     }
+//   }
+// }
 
-      &:after {
-        transform: rotate(45deg) translateY(-0.17em);
-      }
-    }
-  }
-}

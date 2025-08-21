@@ -541,21 +541,20 @@ h6 {
           transform: translateY(-30px);
 }
 
-.example-9 span:before, .example-9 span:after, .example-8 span:before, .example-8 span:after, .example-4 span:before, .example-2 span:before, .example-2 span:after, .burger:after, .burger:before, .burger span {
+.example-8 span:before, .example-8 span:after, .both-hidden span:before, .rotate span:before, .rotate span:after, .burger:after, .burger:before, .burger span {
   display: block;
   position: absolute;
   top: 50%;
-  left: 0.125em;
-  background-color: #dd96ba;
-  width: 0.75em;
-  height: 0.05em;
+  left: 0;
+  background-color: #000;
+  width: 70px;
+  height: 4px;
   border-radius: 0;
 }
 
 .burger {
-  font-size: 6rem;
-  width: 1em;
-  height: 1em;
+  width: 70px;
+  height: 70px;
   display: inline-block;
   position: relative;
   background-color: transparent;
@@ -572,145 +571,145 @@ h6 {
   cursor: pointer;
 }
 .burger span {
-  margin-top: -0.025em;
+  margin-top: -2px;
 }
 .burger:before {
   content: "";
-  margin-top: -0.275em;
+  margin-top: -22px;
 }
 .burger:after {
   content: "";
-  margin-top: 0.225em;
+  margin-top: 18px;
 }
 
-.example-1 span {
+.translate-center span {
   -webkit-transition: 0.2s ease-in-out 0.2s;
   transition: 0.2s ease-in-out 0.2s;
 }
-.example-1:before, .example-1:after {
+.translate-center:before, .translate-center:after {
   -webkit-transition: margin 0.2s ease-in-out 0.2s, -webkit-transform 0.2s ease-in-out 0s;
   transition: margin 0.2s ease-in-out 0.2s, -webkit-transform 0.2s ease-in-out 0s;
   transition: margin 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s;
   transition: margin 0.2s ease-in-out 0.2s, transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s;
 }
-.example-1.active span {
-  background-color: rgba(221, 150, 186, 0);
+.translate-center.active span {
+  background-color: rgba(0, 0, 0, 0);
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
 }
-.example-1.active:before, .example-1.active:after {
+.translate-center.active:before, .translate-center.active:after {
   margin-top: 0;
   -webkit-transition-delay: 0s, 0.25s, 0.25s;
           transition-delay: 0s, 0.25s, 0.25s;
 }
-.example-1.active:before {
+.translate-center.active:before {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.example-1.active:after {
+.translate-center.active:after {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-.example-2:before, .example-2:after {
+.rotate:before, .rotate:after {
   display: none;
 }
-.example-2 span {
+.rotate span {
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
-.example-2 span:before, .example-2 span:after {
+.rotate span:before, .rotate span:after {
   content: "";
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
   top: 0;
   left: 0;
 }
-.example-2 span:before {
-  -webkit-transform: translateY(-0.25em);
-      -ms-transform: translateY(-0.25em);
-          transform: translateY(-0.25em);
+.rotate span:before {
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
 }
-.example-2 span:after {
-  -webkit-transform: translateY(0.25em);
-      -ms-transform: translateY(0.25em);
-          transform: translateY(0.25em);
+.rotate span:after {
+  -webkit-transform: translateY(20px);
+      -ms-transform: translateY(20px);
+          transform: translateY(20px);
 }
-.example-2.active span {
+.rotate.active span {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.example-2.active span:before, .example-2.active span:after {
+.rotate.active span:before, .rotate.active span:after {
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
-.example-3:before, .example-3:after,
-.example-3 span {
+.midle-hidden:before, .midle-hidden:after,
+.midle-hidden span {
   -webkit-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
-.example-3.active:before {
+.midle-hidden.active:before {
   -webkit-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
           transform: rotate(135deg);
-  margin-top: -0.025em;
+  margin-top: -2px;
 }
-.example-3.active:after {
+.midle-hidden.active:after {
   -webkit-transform: rotate(-135deg);
       -ms-transform: rotate(-135deg);
           transform: rotate(-135deg);
-  margin-top: -0.025em;
+  margin-top: -2px;
 }
-.example-3.active span {
+.midle-hidden.active span {
   opacity: 0;
   -webkit-transform: translateX(150%);
       -ms-transform: translateX(150%);
           transform: translateX(150%);
 }
 
-.example-4:before, .example-4:after {
+.both-hidden:before, .both-hidden:after {
   -webkit-transition: 0.2s ease 0.2s;
   transition: 0.2s ease 0.2s;
 }
-.example-4:after {
+.both-hidden:after {
   left: auto;
-  right: 0.125em;
+  right: 0;
 }
-.example-4 span {
+.both-hidden span {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-.example-4 span:before {
+.both-hidden span:before {
   content: "";
   -webkit-transition: inherit;
   transition: inherit;
   left: 0;
   top: 0;
 }
-.example-4.active:before, .example-4.active:after {
+.both-hidden.active:before, .both-hidden.active:after {
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
   width: 0;
 }
-.example-4.active span {
+.both-hidden.active span {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   -webkit-transition: 0.2s ease 0.2s;
   transition: 0.2s ease 0.2s;
 }
-.example-4.active span:before {
+.both-hidden.active span:before {
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
 
-.example-7:before, .example-7:after {
+.dott:before, .dott:after {
   -webkit-transition-property: margin, opacity;
   transition-property: margin, opacity;
   -webkit-transition-duration: 0.25s, 0s;
@@ -718,24 +717,24 @@ h6 {
   -webkit-transition-delay: 0.25s;
           transition-delay: 0.25s;
 }
-.example-7 span {
+.dott span {
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
 }
-.example-7.active:before, .example-7.active:after {
+.dott.active span {
+  width: 21.00210021px;
+  height: 21.00210021px;
+  margin-top: -10.501050105px;
+  left: 21.00210021px;
+  border-radius: 50%;
+  -webkit-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+.dott.active:before, .dott.active:after {
   margin-top: 0;
   opacity: 0;
   -webkit-transition-delay: 0s, 0.25s;
           transition-delay: 0s, 0.25s;
-}
-.example-7.active span {
-  width: 0.3em;
-  height: 0.3em;
-  margin-top: -0.15em;
-  left: 0.35em;
-  border-radius: 50%;
-  -webkit-transition-delay: 0.25s;
-          transition-delay: 0.25s;
 }
 
 .example-8:before, .example-8:after {
@@ -754,14 +753,14 @@ h6 {
   margin: 0;
 }
 .example-8 span:before {
-  -webkit-transform: translateY(-0.25em);
-      -ms-transform: translateY(-0.25em);
-          transform: translateY(-0.25em);
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
 }
 .example-8 span:after {
-  -webkit-transform: translateY(0.25em);
-      -ms-transform: translateY(0.25em);
-          transform: translateY(0.25em);
+  -webkit-transform: translateY(20px);
+      -ms-transform: translateY(20px);
+          transform: translateY(20px);
 }
 .example-8.active span {
   -webkit-transform: rotate(180deg);
@@ -769,62 +768,16 @@ h6 {
           transform: rotate(180deg);
 }
 .example-8.active span:before, .example-8.active span:after {
-  width: 0.375em;
-  left: 0.02em;
+  width: 35px;
+  left: 1.4px;
 }
 .example-8.active span:before {
-  -webkit-transform: rotate(-45deg) translateY(-0.17em);
-      -ms-transform: rotate(-45deg) translateY(-0.17em);
-          transform: rotate(-45deg) translateY(-0.17em);
+  -webkit-transform: rotate(-45deg) translateY(-11.2px);
+      -ms-transform: rotate(-45deg) translateY(-11.2px);
+          transform: rotate(-45deg) translateY(-11.2px);
 }
 .example-8.active span:after {
-  -webkit-transform: rotate(45deg) translateY(0.17em);
-      -ms-transform: rotate(45deg) translateY(0.17em);
-          transform: rotate(45deg) translateY(0.17em);
-}
-
-.example-9:before, .example-9:after {
-  display: none;
-}
-.example-9 span {
-  -webkit-transition: 0.25s ease;
-  transition: 0.25s ease;
-}
-.example-9 span:before, .example-9 span:after {
-  content: "";
-  top: 0;
-  right: 0;
-  left: auto;
-  -webkit-transition: inherit;
-  transition: inherit;
-  margin: 0;
-}
-.example-9 span:before {
-  -webkit-transform: translateY(-0.25em);
-      -ms-transform: translateY(-0.25em);
-          transform: translateY(-0.25em);
-}
-.example-9 span:after {
-  -webkit-transform: translateY(0.25em);
-      -ms-transform: translateY(0.25em);
-          transform: translateY(0.25em);
-}
-.example-9.active span {
-  -webkit-transform: rotate(-180deg);
-      -ms-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-}
-.example-9.active span:before, .example-9.active span:after {
-  width: 0.375em;
-  right: 0.02em;
-}
-.example-9.active span:before {
-  -webkit-transform: rotate(-45deg) translateY(0.17em);
-      -ms-transform: rotate(-45deg) translateY(0.17em);
-          transform: rotate(-45deg) translateY(0.17em);
-}
-.example-9.active span:after {
-  -webkit-transform: rotate(45deg) translateY(-0.17em);
-      -ms-transform: rotate(45deg) translateY(-0.17em);
-          transform: rotate(45deg) translateY(-0.17em);
+  -webkit-transform: rotate(45deg) translateY(11.2px);
+      -ms-transform: rotate(45deg) translateY(11.2px);
+          transform: rotate(45deg) translateY(11.2px);
 }
