@@ -15,13 +15,13 @@
   }
 
   &__menu {
-    @include flex(space-between, center);
     column-gap: 10px;
+    @include flex(space-between, center);
   }
 
   &__logo {
-    @include position-r;
     z-index: 5;
+    @include position-r;
   }
 }
 

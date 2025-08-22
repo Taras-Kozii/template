@@ -1,9 +1,6 @@
 @use "./utils/index" as *;
-@use "./effects/button-effects" as *;
-@use "./effects/link-effects" as *;
-@use "./effects/scroll-effects" as *;
+@use "./effects/index" as *;
 
 @use "./blocks/page";
 @use "./blocks/components";
 @use "./blocks/header";
-@use "./blocks/menu";

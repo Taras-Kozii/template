@@ -2,20 +2,21 @@
 
 .title {
   font-family: $font-family;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  color: $text-color-main;
   @include adaptive-property(font-size, 4.25, 3, 3, rem);
   @include adaptive-property(margin-bottom, 24, 8, 4);
-  font-weight: 600;
   @include adaptive-property(line-height, 3, 3.5, 4.125, rem);
-  letter-spacing: -0.05em;
-  color: $text-color-main;
 }
+
 .subtitle {
   font-family: $font-family;
-  @include adaptive-property(font-size, 1.5, 2.5, 2.5, rem);
-  line-height: 150%; /* 36px/24 */
-  letter-spacing: -0.05em;
+  line-height: 150%;
   color: $text-color-main;
+  @include adaptive-property(font-size, 1.5, 2.5, 2.5, rem);
 }
+
 //=================================BUTTON=============================
 .button {
   width: min(100%, 480px);
@@ -30,8 +31,7 @@
 
   font-size: 1.5rem;
   font-weight: 500;
-  line-height: 150%; /* 36px/24 */
-  letter-spacing: -0.04em;
+  line-height: 150%;
 
   border-radius: 20px;
   border: 2px solid #6cafd9;
@@ -41,14 +41,16 @@
   z-index: 1;
   overflow: hidden;
 }
+
 // ==============================LOGO
 .logo {
   display: flex;
   align-items: center;
+
   &__img {
     display: block;
-    @include adaptive-property(width, 42, 0, 60);
     aspect-ratio: 1 / 1;
+    @include adaptive-property(width, 42, 0, 60);
     @include ibg;
   }
 }

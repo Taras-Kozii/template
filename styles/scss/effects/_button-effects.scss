@@ -20,14 +20,15 @@
     transition: $transition-duraction ease-in-out;
   }
 
-  &:hover {
-    color: $bg-color-red;
+  @include hover {
+    color: blueviolet;
   }
 
-  &:hover::before {
+  @include hover-pseudo('::before') {
     bottom: -50%;
   }
 }
+
 .shine {
   position: relative;
   left: 0;

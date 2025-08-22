@@ -2,9 +2,11 @@
 
 .header-label {
   display: none;
+
   @include on-mobile-l {
     display: flex;
   }
+
   position: relative;
   border-radius: 16px;
   padding: 0.8em 1.3em;
