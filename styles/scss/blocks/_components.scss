@@ -3,11 +3,10 @@
 .title {
   font-family: $font-family;
   font-weight: 600;
-  letter-spacing: -0.05em;
+  line-height: 100%;
   color: $text-color-main;
   @include adaptive-property(font-size, 4.25, 3, 3, rem);
   @include adaptive-property(margin-bottom, 24, 8, 4);
-  @include adaptive-property(line-height, 3, 3.5, 4.125, rem);
 }
 
 .subtitle {

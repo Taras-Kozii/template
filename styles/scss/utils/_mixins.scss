@@ -4,23 +4,23 @@
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // ФУНКЦІЇ
 
-//Percent
-@function percent($px, $from: 100) {
-  $result: math.div($px, $from) * 100%;
-  @return $result;
-}
+// //Percent
+// @function percent($px, $from: 100) {
+//   $result: math.div($px, $from) * 100%;
+//   @return $result;
+// }
 
-//REM
-@function to-rem($px, $current: 16) {
-  $result: math.div($px, $current) + rem;
-  @return $result;
-}
+// //REM
+// @function to-rem($px, $current: 16) {
+//   $result: math.div($px, $current) + rem;
+//   @return $result;
+// }
 
-//EM
-@function to-em($px, $current: 16) {
-  $result: math.div($px, $current) + em;
-  @return $result;
-}
+// //EM
+// @function to-em($px, $current: 16) {
+//   $result: math.div($px, $current) + em;
+//   @return $result;
+// }
 
 @function get-value($min-width, $max-width, $size-at-min-width, $size-at-max-width, $unit) {
   $return-value: calc(#{$size-at-min-width + $unit} + (#{$size-at-max-width - $size-at-min-width}) * ((100vw - #{$min-width + $unit}) / (#{$max-width - $min-width})));
@@ -125,28 +125,19 @@
   align-items: $y;
 }
 
-@mixin cards-flex($column-gap) {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  column-gap: $column-gap;
-}
-
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // GRID
-
 @mixin grid-cards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
   display: grid;
+  min-width: 0;
   gap: $gap;
   grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
 }
 
-@mixin grid-container($quantity, $column-gap, $row-gap) {
+@mixin grid-container($quantity) {
   display: grid;
   min-width: 0;
   grid-template-columns: repeat($quantity, minmax(280px, 1fr));
-  column-gap: $column-gap;
-  row-gap: $row-gap;
 }
 
 // HOVER
@@ -193,7 +184,8 @@
 
 @mixin position-r {
   position: relative;
-  inset: 0;
+  left: 0;
+  top: 0;
 }
 
 @mixin ibg($size: cover) {

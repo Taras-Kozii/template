@@ -1,57 +1,57 @@
 @use "../utils/index" as *;
 
-.fill-down-effect {
-  position: relative;
-  left: 0;
-  right: 0;
-  transition: 0.15s;
-  z-index: 1;
-  overflow: hidden;
+// .fill-down-effect {
+//   position: relative;
+//   left: 0;
+//   right: 0;
+//   transition: 0.15s;
+//   z-index: 1;
+//   overflow: hidden;
 
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    width: 150%;
-    height: 300%;
-    border-radius: 50%;
-    background-color: $text-color-2;
-    z-index: -1;
-    transition: $transition-duraction ease-in-out;
-  }
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     bottom: 100%;
+//     width: 150%;
+//     height: 300%;
+//     border-radius: 50%;
+//     background-color: $text-color-2;
+//     z-index: -1;
+//     transition: $transition-duraction ease-in-out;
+//   }
 
-  @include hover {
-    color: blueviolet;
-  }
+//   @include hover {
+//     color: blueviolet;
+//   }
 
-  @include hover-pseudo('::before') {
-    bottom: -50%;
-  }
-}
+//   @include hover-pseudo('::before') {
+//     bottom: -50%;
+//   }
+// }
 
-.shine {
-  position: relative;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  z-index: 3;
+// .shine {
+//   position: relative;
+//   left: 0;
+//   top: 0;
+//   overflow: hidden;
+//   z-index: 3;
 
-  &::before {
-    content: "";
-    height: 20%;
-    width: 150%;
-    opacity: 0.2;
-    position: absolute;
-    top: 50%;
-    left: -120%;
-    transform: rotate(45deg);
-    z-index: 2;
-    background: rgb(255, 255, 255, 0.3);
-    transition: $transition-duraction-long cubic-bezier(0.19, 1, 0.22, 1);
-  }
+//   &::before {
+//     content: "";
+//     height: 20%;
+//     width: 150%;
+//     opacity: 0.2;
+//     position: absolute;
+//     top: 50%;
+//     left: -120%;
+//     transform: rotate(45deg);
+//     z-index: 2;
+//     background: rgb(255, 255, 255, 0.3);
+//     transition: $transition-duraction-long cubic-bezier(0.19, 1, 0.22, 1);
+//   }
 
-  @include hover-pseudo("::before") {
-    left: 120%;
-    transition: $transition-duraction-long cubic-bezier(0.19, 1, 0.22, 1);
-  }
-}
+//   @include hover-pseudo("::before") {
+//     left: 120%;
+//     transition: $transition-duraction-long cubic-bezier(0.19, 1, 0.22, 1);
+//   }
+// }
