@@ -13,12 +13,12 @@ export function scrollToBlock(link) {
     top: scrollValue,
   });
 }
-export function getDigFromString(item) {
-  return parseInt(item.replace(/[^\d]/g, ''))
-}
-export function getDigFormat(item, sepp = ' ') {
-  return item.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, `$1${sepp}`);
-}
+// export function getDigFromString(item) {
+//   return parseInt(item.replace(/[^\d]/g, ''))
+// }
+// export function getDigFormat(item, sepp = ' ') {
+//   return item.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, `$1${sepp}`);
+// }
 export function lockPage() {
   const rightPaddingValue = window.innerWidth - document.documentElement.clientWidth + 'px';
   setFixPadding(rightPaddingValue);
@@ -32,6 +32,6 @@ export function lockPage() {
   }
 }
 }
-export function setCSSProperty(item, property, value) {
-  item.style.setProperty(property, value);
-}
+// export function setCSSProperty(item, property, value) {
+//   item.style.setProperty(property, value);
+// }
