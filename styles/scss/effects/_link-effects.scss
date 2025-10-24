@@ -1,7 +1,7 @@
 @use "../utils/index" as *;
 
 //UNDERLINE
-// .underline-show-center {
+// .link-underline-show-center {
 //   $before-height: 2px;
 //   color: #000;
 //   cursor: pointer;
@@ -29,7 +29,7 @@
 //   }
 // }
 
-// .underline-show-left-right {
+// .link-underline-show-left-right {
 //   span {
 //     position: relative;
 
@@ -54,7 +54,7 @@
 //   }
 // }
 
-// .underline-hidden {
+// .link-underline-hidden {
 //   span {
 //     position: relative;
 
@@ -79,7 +79,7 @@
 // }
 
 //TEXT COLOR + UNDERLINE
-// .fill-color {
+// .link-fill-color {
 //   position: relative;
 //   display: inline-block;
 //   white-space: nowrap;
@@ -98,5 +98,68 @@
 
 //   @include hover-pseudo("::before") {
 //     max-width: 100%;
+//   }
+// }
+// .link-show-bars {
+//   position: relative;
+//   transition: font-weight $transition-duraction ease;
+
+//   &::before,
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     height: 2px;
+//     background-color: $color-olive;
+//     transform: scaleX(0);
+//     transition: transform $transition-duraction ease;
+//   }
+
+//   &::before {
+//     top: 0;
+//     transform-origin: center right;
+//   }
+//   &::after {
+//     bottom: 0;
+//     transform-origin: center left;
+//   }
+//   @include hover-pseudo("::before") {
+//     transform-origin: center left;
+//     transform: scaleX(1);
+//   }
+//   @include hover-pseudo("::after") {
+//     transform-origin: center right;
+//     transform: scaleX(1);
+//   }
+//   @include hover {
+//     font-weight: 700;
+//   }
+// }
+// .link-show-mask {
+//   display: inline-block;
+//   padding: 5px 2px;
+//   position: relative;
+//   z-index: 1;
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     z-index: -1;
+//     top: 0;
+//     bottom: 0;
+//     left: -0.25em;
+//     right: -0.25em;
+//     transform-origin: center right;
+//     transform: scaleX(0);
+//     transition: transform 0.2s ease-in-out;
+//     background-image: url("../../images/line.webp");
+//     background-position: center;
+//     background-size: 100% 110%;
+//     background-repeat: no-repeat;
+//   }
+//   @include hover-pseudo("::before") {
+//     transform: scaleX(1);
+//     transform-origin: center left;
 //   }
 // }
