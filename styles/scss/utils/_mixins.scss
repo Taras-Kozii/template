@@ -127,18 +127,18 @@
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // GRID
-@mixin grid-cards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
-  display: grid;
-  min-width: 0;
-  gap: $gap;
-  grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
-}
+// @mixin grid-cards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+//   display: grid;
+//   min-width: 0;
+//   gap: $gap;
+//   grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+// }
 
-@mixin grid-container($quantity) {
-  display: grid;
-  min-width: 0;
-  grid-template-columns: repeat($quantity, minmax(280px, 1fr));
-}
+// @mixin grid-container($quantity) {
+//   display: grid;
+//   min-width: 0;
+//   grid-template-columns: repeat($quantity, minmax(280px, 1fr));
+// }
 
 // HOVER
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -199,8 +199,8 @@
   }
 }
 
-@mixin p-margin {
-  &__text p:not(:last-child) {
-    margin-bottom: 0.625rem;
-  }
-}
+// @mixin p-margin {
+//   &__text p:not(:last-child) {
+//     margin-bottom: 0.625rem;
+//   }
+// }
